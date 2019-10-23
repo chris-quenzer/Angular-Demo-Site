@@ -1,0 +1,151 @@
+<h1>User Data</h1>
+
+<p>This component demonstrates fetching data from the server through an API call.</p>
+
+<!-- Input box to filter on userId, etc. -->
+<input type="text" class="form-control" id="text-box-userid" #filterId placeholder="Filter ID" />
+
+<!-- Combo box to select what you want to query -->
+<select name="sources" #sources class="form-control" id="dropdown-select-source">
+  <option value="posts">Posts</option>
+  <option value="comments">Comments</option>
+  <option value="albums">Albums</option>
+  <option value="photos">Photos</option>
+  <option value="todos">Todos</option>
+  <option value="users">Users</option>
+</select>
+
+<!-- Submit button to apply filter(id and data source) -->
+<button class="btn btn-primary" id="btn-filter-userid" (click)="updateData(filterId.value, sources.value)">Go</button>
+
+<p *ngIf="!requestData"><em>Loading...</em></p>
+
+<!-- Posts -->
+<table class='table table-striped' *ngIf="requestData && source == 'posts'">
+  <thead>
+    <tr>
+      <th>User ID</th>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Body</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of requestData">
+      <td>{{ data.userId }}</td>
+      <td>{{ data.id }}</td>
+      <td>{{ data.title }}</td>
+      <td>{{ data.body }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Comments -->
+<table class='table table-striped' *ngIf="requestData && source == 'comments'">
+  <thead>
+    <tr>
+      <th>Post ID</th>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Body</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of requestData">
+      <td>{{ data.postId }}</td>
+      <td>{{ data.id }}</td>
+      <td>{{ data.name }}</td>
+      <td>{{ data.email }}</td>
+      <td>{{ data.body }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Albums -->
+<table class='table table-striped' *ngIf="requestData && source == 'albums'">
+  <thead>
+    <tr>
+      <th>User ID</th>
+      <th>ID</th>
+      <th>Title</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of requestData">
+      <td>{{ data.userId }}</td>
+      <td>{{ data.id }}</td>
+      <td>{{ data.title }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Photos -->
+<table class='table table-striped' *ngIf="requestData && source == 'photos'">
+  <thead>
+    <tr>
+      <th>Album ID</th>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Url</th>
+      <th>Thumbnail Url</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of requestData">
+      <td>{{ data.albumId }}</td>
+      <td>{{ data.id }}</td>
+      <td>{{ data.title }}</td>
+      <td>{{ data.url }}</td>
+      <td>{{ data.thumbnailUrl }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Todos -->
+<table class='table table-striped' *ngIf="requestData && source == 'todos'">
+  <thead>
+    <tr>
+      <th>User ID</th>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Completed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of requestData">
+      <td>{{ data.userId }}</td>
+      <td>{{ data.id }}</td>
+      <td>{{ data.title }}</td>
+      <td>{{ data.completed }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Users -->
+<table class='table table-striped' *ngIf="requestData && source == 'users'">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Address</th>
+      <th>Phone</th>
+      <th>Website</th>
+      <th>Company</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of requestData">
+      <td>{{ data.id }}</td>
+      <td>{{ data.name }}</td>
+      <td>{{ data.username }}</td>
+      <td>{{ data.email }}</td>
+      <td>{{ data.address.street }} {{data.address.suite}}<br />{{data.address.city}}<br />{{data.address.zipcode}}<br />Lat: {{data.address.geo.lat}} Long: {{data.address.geo.lng}}</td>
+      <td>{{ data.phone }}</td>
+      <td>{{ data.website }}</td>
+      <td>{{ data.company.name }}<br />{{data.company.catchPhrase}}<br />{{data.company.bs}}</td>
+    </tr>
+  </tbody>
+</table>

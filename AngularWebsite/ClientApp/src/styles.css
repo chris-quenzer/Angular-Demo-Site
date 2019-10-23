@@ -1,0 +1,124 @@
+/* You can add global styles to this file, and also import other style files */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  font-size: 14px;
+}
+
+#wrap {
+  min-height: 100%;
+}
+
+#main {
+  overflow: auto;
+  padding-bottom: 180px;
+  /* must be same height as the footer */
+}
+
+.navbar-brand {
+  font-size: 24px;
+  text-align: center;
+}
+
+#home-page-content {
+  color: white;
+  background-color: #91D229;
+  margin: 50px 0;
+  padding: 30px 50px;
+  box-shadow: #cccccc 0px 0px 15px;
+}
+
+#home-page-content a {
+  color: white;
+}
+
+.home-logo-img {
+  height: 100px;
+  margin-top: 20px;
+  filter: gray; /* IE6-9 */
+  -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+  filter: grayscale(1); /* Microsoft Edge and Firefox 35+ */
+}
+
+.logos-wrapper {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+#btn-filter-userid {
+  margin-left: 15px;
+  margin-bottom: 5px;
+}
+
+#text-box-userid {
+  width: 100px;
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+#dropdown-select-source {
+  width: 150px;
+  display: inline-block;
+  margin-bottom: 15px;
+  margin-left: 15px;
+}
+
+/*.table tr {
+  background-color: #faffef;
+}*/
+/table > tbody > tr {
+  border-top: 1px solid #808080;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #91D229;
+  border-color: #91D229;
+}
+
+.btn-primary:hover {
+  background-color: #808080;
+  border-color: #808080;
+}
+
+btn-primary:visited {
+  background-color: #808080;
+  border-color: #808080;
+}
+
+btn-primary:active {
+  background-color: #808080;
+  border-color: #808080;
+}
+
+footer {
+  color: white;
+  background-color: #808080;
+  width: 100%;
+
+  position: relative;
+  margin-top: -180px;
+  /* negative value of footer height */
+  height: 180px;
+  clear: both;
+}
+
+.footer-content {
+  text-align: center;
+  padding: 30px;
+}
+
+#bottom-img-wrapper {
+  height:40px;
+  overflow:hidden;
+}
+
+#bottom-img {
+  width: 100%;
+}
