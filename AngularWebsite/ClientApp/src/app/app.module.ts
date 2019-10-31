@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { DemoComponent } from './json-placeholder/json-placeholder.component';
+import { IssTrackerComponent } from './iss-tracker/iss-tracker.component';
 import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
@@ -20,7 +21,8 @@ import { FooterComponent } from './footer/footer.component';
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    DemoComponent
+    DemoComponent,
+    IssTrackerComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -31,6 +33,7 @@ import { FooterComponent } from './footer/footer.component';
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'json-placeholder', component: DemoComponent },
+      { path: 'iss-tracker', component: IssTrackerComponent },
     ])
   ],
   providers: [],

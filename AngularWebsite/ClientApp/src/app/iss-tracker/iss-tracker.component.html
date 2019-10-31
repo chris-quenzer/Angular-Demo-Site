@@ -1,0 +1,67 @@
+<h1>ISS Tracker</h1>
+
+<p>This component tracks the position of the International Space Station</p>
+
+<!-- ISS Location -->
+<table class='table table-striped' *ngIf="issLocation">
+  <thead>
+    <tr>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{ issLocation.iss_position.latitude }}</td>
+      <td>{{ issLocation.iss_position.longitude }}</td>
+      <td>{{ issLocation.timestamp }}</td>]
+    </tr>
+  </tbody>
+</table>
+
+<h2>Find times when the ISS will pass over you.</h2>
+
+<!-- Input box to enter latitude -->
+<input type="text" class="form-control" style="width:300px;display:inline-block;" id="text-box-myLat" #myLat placeholder="My latitude"/>
+<input type="text" class="form-control" style="width:300px;display:inline-block;" id="text-box-myLng" #myLng placeholder="My longitude"/>
+
+<!-- Submit button to apply filter(id and data source) -->
+<button class="btn btn-primary" id="btn-filter-userid" (click)="updateIssPassTimes(myLat.value, myLng.value)">Find ISS Pass Times</button>
+
+<!-- ISS Pass Times -->
+<table class='table table-striped' *ngIf="issPassTimes">
+  <thead>
+    <tr>
+      <th>Rise Time</th>
+      <th>Duration</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let pass of issPassTimes.response">
+      <td>{{ pass.risetime }}</td>
+      <td>{{ pass.duration }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- People In Space -->
+<div *ngIf="peopleInSpace">
+  <h2>People In Space</h2>
+  <p># of people in space: {{ peopleInSpace.number }}</p>
+
+  <table class='table table-striped'>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Craft</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let person of peopleInSpace.people">
+        <td>{{ person.name }}</td>
+        <td>{{ person.craft }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
